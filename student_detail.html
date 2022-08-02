@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <h1 style="text-align:center">Student details</h1>
+        <table id = "personal-details">
+            <tr>
+                <th>Roll Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            <tr>
+                <td>{{student['roll_number']}}</td>
+                <td>{{student['first_name']}}</td>
+                <td>{{student['last_name']}}</td>
+            </tr>
+        </table>
+        <h1 style="text-align:center">Enrollment details</h1>
+        <table id = "enroll-table">
+            <tr>
+                <th>S. No.</th>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Course Description</th>
+            </tr>
+            {% for i in course %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{i.course_code}}</td>
+                    <td>{{i.course_name}}</td>
+                    <td>{{i.course_description}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <pre>                                <a href="/">Go back</a></pre>
+    </body>
+</html>

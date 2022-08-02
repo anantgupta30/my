@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <h1>Student list</h1>
+        {% if students == [] %}
+            {{statement}}
+        {% else %}
+        <table id = "all-students">
+            <tr>
+                <th>SNo</th>
+                <th>Roll Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Actions</th>
+            </tr>
+            {% for i in students %}
+                <tr>
+                    <td>{{i["student_id"]}}</td>
+                    <td><a href="/student/{{i['student_id']}}">{{i["roll_number"]}}</a></td>
+                    <td>{{i["first_name"]}}</td>
+                    <td>{{i["last_name"]}}</td>
+                    <td>
+                    <a href="/student/{{i['student_id']}}/update" type="button">Update</a>
+                    <a href="/student/{{i['student_id']}}/delete" type="button">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+        <pre>                <a href="/student/create" type="button">+AddStudent</a></pre>
+    </body>
+</html>
